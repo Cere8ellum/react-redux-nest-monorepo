@@ -1,0 +1,36 @@
+{
+    "extends": "../../tsconfig.common.json",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "jsx": "react",
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules", // auto-genertes virtual .d.ts for an every css file
+                "options": {
+                    "customTemplate": "./customTemplate.js"
+                }
+            }
+        ],
+        // This will include all packages from array only
+        // node_modules/@types - is default path. 
+        // Required, otherwise it will be ignored if some types added.
+        "typeRoots": [
+            "../../node_modules/@types",
+            "src/types",
+        ],
+    },
+    "files": [
+        "src/types/images.d.ts"
+    ],
+    "include": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "__config__/jest/**/*",
+        "**/*.spec.tsx",
+        "**/*.test.tsx",
+    ],
+}
